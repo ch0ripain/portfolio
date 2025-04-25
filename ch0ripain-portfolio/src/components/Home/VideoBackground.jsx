@@ -11,7 +11,7 @@ export default function VideoBackground() {
         muted
         className="video-element"
       >
-        <source src="../src/assets/rain.mp4" type="video/mp4" />
+        <source src="../src/assets/stars.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
     </div>

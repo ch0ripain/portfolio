@@ -1,6 +1,13 @@
 import { useState } from "react";
 import NavItem from "./NavItem";
 
+const NAV_BORDER_COLORS = {
+  Inicio: "#f97316",
+  Skills: "#ec4899",
+  Experiencia: "#facc15",
+  Educación: "#0284c7",
+};
+
 export default function Header() {
   const [activeNavItemLabel, setActiveNavItemLabel] = useState("Inicio");
 
@@ -8,9 +15,14 @@ export default function Header() {
     setActiveNavItemLabel(label);
   }
 
+  const navBorderColorActive = NAV_BORDER_COLORS[activeNavItemLabel];
+
   return (
     <header className="flex flex-row justify-center bg-transparent">
-      <nav className="w-1/3 rounded-3xl backdrop-blur-sm bg-black/15 animate-[fadeDownWithBorder_5s_ease-in-out]">
+      <nav
+        className="w-1/3 rounded-3xl backdrop-blur-sm bg-white/5 animate-[fadeDownWithBorder_5s_ease-in-out]"
+        style={{ borderColor: navBorderColorActive }}
+      >
         <ul className="flex flex-row justify-evenly">
           <NavItem
             label="Inicio"
