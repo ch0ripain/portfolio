@@ -7,12 +7,14 @@ export default function NavItem({
   activeColor,
   onHoverIconCSS,
   onFadeADownCSS,
+  onActiveLabelBg,
 }) {
   return (
-    <li onClick={() => onActiveLabel(label)} className="group">
-      <a
-        className={`flex flex-row cursor-pointer p-2 rounded-3xl place-items-center gap-x-1 min-h-8 ${onFadeADownCSS}`}
-      >
+    <li
+      onClick={() => onActiveLabel(label)}
+      className={`group cursor-pointer rounded-3xl px-4 py-1 hover:backdrop-blur-md hover:bg-white/8 transition duration-300 ${onActiveLabelBg} ${onFadeADownCSS}`}
+    >
+      <a className={`flex flex-row place-items-center gap-x-1 min-h-8 `}>
         <i className={`${iconClass} ${activeColor} ${onHoverIconCSS}`}></i>
         <p>{label}</p>
       </a>

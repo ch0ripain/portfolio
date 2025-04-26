@@ -1,20 +1,37 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&family=Exo+2:wght@300&display=swap");
 @import "tailwindcss";
+
 /* General rules */
 @layer base {
   body {
-    @apply text-white relative font-sans h-screen overflow-hidden;
+    @apply text-white font-exo-2 relative h-screen bg-black overflow-hidden;
   }
 }
 
-/* Custom Tailwind Rules */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Custom Tailwind Theme */
 @theme {
+  /* Animations */
   --animate-fade-in: fadeIn 1s ease-in-out;
   --animate-fade-in-video: fadeInVideo 3s ease-in-out;
-  --animate-fade-down-icon: fadeDownIcon 1s ease-in-out;
+  --animate-fade-down: fadeDown 1s ease-in-out;
+  --animate-fade-down-nav-item: fadeDownNavItem 1s ease-in-out;
+  --animate-fade-down-nav-with-border: fadeDownNavWithBorder 1s ease-in-out;
   --animate-fade-up: fadeUp 1s ease-in-out;
-  --animate-fade-down-border: fadeDownWithBorder 1s ease-in-out;
   --animate-fade-left: fadeLeft 1s ease-in-out;
   --animate-fade-right: fadeRight 1s ease-in-out;
+  --font-orbitron: "Orbitron", "sans-serif";
+  --font-exo-2: "Exo 2", "sans-serif";
 
   @keyframes fadeIn {
     0% {
@@ -37,12 +54,26 @@
     }
   }
 
-  @keyframes fadeDownIcon {
+  @keyframes fadeDownNavItem {
     0% {
       opacity: 0%;
     }
     50% {
       transform: translateY(-10px);
+      opacity: 0%;
+    }
+    90% {
+      transform: translateY(0);
+      opacity: 10%;
+    }
+  }
+
+  @keyframes fadeDown {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0%;
+    }
+    25% {
       opacity: 0%;
     }
     100% {
@@ -56,13 +87,16 @@
       transform: translateY(20px);
       opacity: 0%;
     }
+    25% {
+      opacity: 0%;
+    }
     100% {
       transform: translateY(0);
       opacity: 100%;
     }
   }
 
-  @keyframes fadeDownWithBorder {
+  @keyframes fadeDownNavWithBorder {
     0% {
       transform: translateY(-40px);
       opacity: 0%;
@@ -102,13 +136,4 @@
       opacity: 1;
     }
   }
-}
-
-/* Background rules */
-body {
-  background: black;
-}
-
-nav {
-  border: 1px solid white;
 }
