@@ -1,11 +1,11 @@
 import { useState } from "react";
 import NavItem from "./NavItem";
 
-const NAV_BORDER_COLORS = {
-  Inicio: "#f97316",
-  Skills: "#ec4899",
-  Experiencia: "#facc15",
-  Educación: "#0284c7",
+const NAV_BORDER_STYLES = {
+  Inicio: "1px solid rgba(249, 115, 22, 0.6)",
+  Skills: "1px solid rgba(236, 72, 153, 0.6)",
+  Experiencia: "1px solid rgba(250, 204, 21, 0.6)",
+  Educación: "1px solid rgba(2, 132, 199, 0.6)",
 };
 
 export default function Header() {
@@ -15,13 +15,13 @@ export default function Header() {
     setActiveNavItemLabel(label);
   }
 
-  const navBorderColorActive = NAV_BORDER_COLORS[activeNavItemLabel];
+  const navBorderStyleActive = NAV_BORDER_STYLES[activeNavItemLabel];
 
   return (
     <header className="flex flex-row justify-center bg-transparent">
       <nav
         className="w-1/3 rounded-3xl backdrop-blur-sm bg-white/5 animate-[fadeDownWithBorder_5s_ease-in-out]"
-        style={{ borderColor: navBorderColorActive }}
+        style={{ border: navBorderStyleActive }}
       >
         <ul className="flex flex-row justify-evenly">
           <NavItem
