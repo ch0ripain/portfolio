@@ -2,14 +2,41 @@ import { useState } from "react";
 import NavItem from "./NavItem";
 
 const NAV_BORDER_STYLES = {
-  Inicio: "1px solid rgba(249, 115, 22)",
+  Home: "1px solid rgba(249, 115, 22)",
   Skills: "1px solid rgba(236, 72, 153)",
-  Experiencia: "1px solid rgba(250, 204, 21)",
+  Trabajos: "1px solid rgba(250, 204, 21)",
   Educación: "1px solid rgba(2, 132, 199)",
 };
 
+const NAV_ITEMS = [
+  {
+    label: "Home",
+    fadeIn: "animate-[fadeInNavItemOrange_3s_ease-in-out]",
+    twIcon: "bx bxs-flame group-hover:text-icon-orange",
+    twIconActive: "text-icon-orange animate-pulse",
+  },
+  {
+    label: "Skills",
+    fadeIn: "animate-[fadeInNavItemPink_5s_ease-in-out]",
+    twIcon: "bx bxs-ghost group-hover:text-icon-pink",
+    twIconActive: "text-icon-pink animate-pulse",
+  },
+  {
+    label: "Trabajos",
+    fadeIn: "animate-[fadeInNavItemYellow_6s_ease-in-out]",
+    twIcon: "bx bxs-star group-hover:text-icon-yellow",
+    twIconActive: "text-icon-yellow animate-pulse",
+  },
+  {
+    label: "Educación",
+    fadeIn: "animate-[fadeInNavItemSky_7s_ease-in-out]",
+    twIcon: "bx bxs-book-bookmark group-hover:text-icon-sky",
+    twIconActive: "text-icon-sky animate-pulse",
+  },
+];
+
 export default function NavBar() {
-  const [activeNavItemLabel, setActiveNavItemLabel] = useState("Inicio");
+  const [activeNavItemLabel, setActiveNavItemLabel] = useState("Home");
 
   function handleActiveNavItem(label) {
     setActiveNavItemLabel(label);
@@ -18,68 +45,24 @@ export default function NavBar() {
   const navBorderStyleActive = NAV_BORDER_STYLES[activeNavItemLabel];
 
   return (
-    <header className="flex flex-row justify-center bg-transparent">
+    <header className="sticky top-0 z-50 flex flex-row justify-center bg-transparent">
       <nav
-        className=" min-w-1/3 rounded-3xl backdrop-blur-sm bg-white/5 animate-[fadeDownNavWithBorder_5s_ease-in-out] py-1 px-1"
+        className="min-w-full animate-fade-down-nav rounded-3xl bg-white/5 py-1 backdrop-blur-sm sm:min-w-1/3"
         style={{ border: navBorderStyleActive }}
       >
-        <ul className="flex flex-row justify-evenly gap-x-1">
-          <NavItem
-            label="Inicio"
-            iconClass="bx bxs-flame"
-            onActiveLabel={handleActiveNavItem}
-            activeColor={
-              activeNavItemLabel === "Inicio" && "text-orange-500 animate-pulse"
-            }
-            onActiveLabelBg={
-              activeNavItemLabel === "Inicio" && "backdrop-blur-md bg-white/5"
-            }
-            onHoverIconCSS="group-hover:text-orange-500"
-            onFadeADownCSS="animate-[fadeDownNavItem_1.5s_ease-in-out]"
-          />
-          <NavItem
-            label="Skills"
-            iconClass="bx bxs-ghost"
-            onActiveLabel={handleActiveNavItem}
-            activeColor={
-              activeNavItemLabel === "Skills" && "text-pink-500 animate-pulse"
-            }
-            onActiveLabelBg={
-              activeNavItemLabel === "Skills" &&
-              "backdrop-blur-md bg-white/5 transition duration-300"
-            }
-            onHoverIconCSS="group-hover:text-pink-500"
-            onFadeADownCSS="animate-[fadeDownNavItem_2s_ease-in-out]"
-          />
-          <NavItem
-            label="Experiencia"
-            iconClass="bx bxs-star"
-            onActiveLabel={handleActiveNavItem}
-            activeColor={
-              activeNavItemLabel === "Experiencia" &&
-              "text-yellow-400 animate-pulse"
-            }
-            onActiveLabelBg={
-              activeNavItemLabel === "Experiencia" &&
-              "backdrop-blur-md bg-white/5 transition duration-300"
-            }
-            onHoverIconCSS="group-hover:text-yellow-400"
-            onFadeADownCSS="animate-[fadeDownNavItem_2.5s_ease-in-out]"
-          />
-          <NavItem
-            label="Educación"
-            iconClass="bx bxs-book-bookmark"
-            onActiveLabel={handleActiveNavItem}
-            activeColor={
-              activeNavItemLabel === "Educación" && "text-sky-600 animate-pulse"
-            }
-            onActiveLabelBg={
-              activeNavItemLabel === "Educación" &&
-              "backdrop-blur-md bg-white/5 transition duration-300"
-            }
-            onHoverIconCSS="group-hover:text-sky-600"
-            onFadeADownCSS="animate-[fadeDownNavItem_3s_ease-in-out]"
-          />
+        <ul className="flex flex-row justify-center">
+          {NAV_ITEMS.length > 0 &&
+            NAV_ITEMS.map((item) => (
+              <NavItem
+                key={item.label}
+                isSelected={item.label === activeNavItemLabel}
+                label={item.label}
+                onActiveLabel={handleActiveNavItem}
+                twFadeIn={item.fadeIn}
+                twIcon={`${item.twIcon} ${activeNavItemLabel === item.label ? item.twIconActive : ""}`}
+              />
+            ))}
+          <ul />
         </ul>
       </nav>
     </header>

@@ -3,7 +3,10 @@ import HomeSectionAboutMe from "./HomeSectionAboutMe";
 import HomeSectionSpline from "./HomeSectionSpline";
 export default function Home() {
   return (
-    <section className="min-h-[80dvh] backdrop-blur-xs bg-black-300/10 flex flex-row justify-center items-center">
+    <section
+      id="home"
+      className="bg-black-300/10 flex min-h-[80dvh] flex-row items-center justify-center backdrop-blur-xs"
+    >
       <HomeSectionAboutMe />
       <HomeSectionSpline />
     </section>

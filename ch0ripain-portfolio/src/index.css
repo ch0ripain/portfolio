@@ -3,10 +3,44 @@
 @import "tailwindcss";
 @import "./components/NavBar/navbar.css";
 
-/* General rules */
 @layer base {
+  /* Reset box-sizing para todos los elementos */
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
   body {
-    @apply text-white font-exo-2 relative h-screen bg-black overflow-hidden;
+    @apply relative min-h-screen bg-black font-exo-2 text-white antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol {
+    @apply m-0 p-0;
+  }
+
+  p {
+    @apply truncate;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  /* Listas sin estilos por defecto */
+  ul,
+  ol {
+    @apply list-none;
+  }
+
+  img {
+    @apply h-auto max-w-full;
   }
 }
 

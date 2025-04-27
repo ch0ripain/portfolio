@@ -7,7 +7,7 @@ import Skills from "./components/Skills/Skills";
 
 function App() {
   return (
-    <div className="container mx-auto px-12 pt-6 pb-12 h-screen flex flex-col gap-y-5 overflow-auto no-scrollbar">
+    <div className="no-scrollbar container mx-auto flex h-screen flex-col gap-y-8 overflow-auto scroll-smooth px-6 pt-6 pb-12 sm:px-12">
       <VideoBackground />
       <NavBar />
       <Home />

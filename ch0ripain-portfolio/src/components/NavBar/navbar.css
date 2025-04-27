@@ -1,38 +1,82 @@
 @theme {
+  /* Nav Icons Colors */
+  --color-icon-orange: #f97316;
+  --color-icon-pink: #ec4899;
+  --color-icon-yellow: #facc15;
+  --color-icon-sky: #0284c7;
   /* NavBar Animations */
-  --animate-fade-down-nav-with-border: fadeDownNavWithBorder 1s ease-in-out;
-  --animate-fade-down-nav-item: fadeDownNavItem 1s ease-in-out;
+  --animate-fade-down-nav: fadeDownNav 8s ease-in-out;
 
-  @keyframes fadeDownNavWithBorder {
-    0% {
+  @keyframes fadeDownNav {
+    0%,
+    20% {
       transform: translateY(-40px);
       opacity: 0%;
       border-color: transparent;
     }
-    15% {
+    30% {
       transform: translateY(0);
-      opacity: 100%;
-      border-color: transparent;
+      opacity: 80%;
     }
-    65% {
+    95% {
       border-color: transparent;
-    }
-    90% {
-      border-color: white;
     }
   }
 
-  @keyframes fadeDownNavItem {
-    0% {
-      opacity: 0%;
-    }
+  @keyframes fadeInNavItemOrange {
+    0%,
     50% {
-      transform: translateY(-10px);
       opacity: 0%;
+      color: white;
+    }
+    70% {
+      opacity: 100%;
     }
     90% {
-      transform: translateY(0);
-      opacity: 10%;
+      opacity: 20%;
+      color: #f97316;
+    }
+  }
+  @keyframes fadeInNavItemPink {
+    0%,
+    50% {
+      opacity: 0%;
+      color: white;
+    }
+    70% {
+      opacity: 100%;
+    }
+    90% {
+      opacity: 20%;
+      color: #ec4899;
+    }
+  }
+  @keyframes fadeInNavItemYellow {
+    0%,
+    50% {
+      opacity: 0%;
+      color: white;
+    }
+    70% {
+      opacity: 100%;
+    }
+    90% {
+      opacity: 20%;
+      color: #facc15;
+    }
+  }
+  @keyframes fadeInNavItemSky {
+    0%,
+    50% {
+      opacity: 0%;
+      color: white;
+    }
+    70% {
+      opacity: 100%;
+    }
+    90% {
+      opacity: 20%;
+      color: #0284c7;
     }
   }
 }
