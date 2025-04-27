@@ -1,0 +1,38 @@
+@theme {
+  /* NavBar Animations */
+  --animate-fade-down-nav-with-border: fadeDownNavWithBorder 1s ease-in-out;
+  --animate-fade-down-nav-item: fadeDownNavItem 1s ease-in-out;
+
+  @keyframes fadeDownNavWithBorder {
+    0% {
+      transform: translateY(-40px);
+      opacity: 0%;
+      border-color: transparent;
+    }
+    15% {
+      transform: translateY(0);
+      opacity: 100%;
+      border-color: transparent;
+    }
+    65% {
+      border-color: transparent;
+    }
+    90% {
+      border-color: white;
+    }
+  }
+
+  @keyframes fadeDownNavItem {
+    0% {
+      opacity: 0%;
+    }
+    50% {
+      transform: translateY(-10px);
+      opacity: 0%;
+    }
+    90% {
+      transform: translateY(0);
+      opacity: 10%;
+    }
+  }
+}

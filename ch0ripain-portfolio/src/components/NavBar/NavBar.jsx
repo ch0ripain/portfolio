@@ -8,7 +8,7 @@ const NAV_BORDER_STYLES = {
   Educación: "1px solid rgba(2, 132, 199)",
 };
 
-export default function Header() {
+export default function NavBar() {
   const [activeNavItemLabel, setActiveNavItemLabel] = useState("Inicio");
 
   function handleActiveNavItem(label) {
