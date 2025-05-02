@@ -10,7 +10,7 @@
     @apply box-border;
   }
   body {
-    @apply relative min-h-screen w-full bg-black font-inter text-white antialiased;
+    @apply relative min-h-screen w-full bg-purple-500 font-inter text-white antialiased;
   }
   h1,
   h2,
@@ -125,4 +125,25 @@
       opacity: 100%;
     }
   }
+}
+
+/* 3D Model Styles */
+#three-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Background Shader */
+#background {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
