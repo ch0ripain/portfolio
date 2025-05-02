@@ -1,10 +1,14 @@
 export default function Experience() {
   return (
     <section
-      id="trabajos"
-      className="flex min-h-[80dvh] flex-row items-center justify-center bg-white/5 backdrop-blur-xs"
+      id="experiencia"
+      className="flex min-h-[70dvh] scroll-mt-36 flex-row justify-end bg-white/10"
     >
-      <h1 className="font-orbitron text-7xl uppercase">Proyectos</h1>
+      <div className="w-full bg-white/50 lg:max-w-8/12">
+        <h1 className="font-orbitron text-center text-title uppercase">
+          Proyectos
+        </h1>
+      </div>
     </section>
   );
 }

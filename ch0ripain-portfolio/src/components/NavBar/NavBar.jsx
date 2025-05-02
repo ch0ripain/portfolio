@@ -1,65 +1,49 @@
 import { useState } from "react";
 import NavItem from "./NavItem";
 
-const NAV_BORDER_STYLES = {
-  Home: "1px solid rgba(249, 115, 22)",
-  Skills: "1px solid rgba(236, 72, 153)",
-  Trabajos: "1px solid rgba(250, 204, 21)",
-  Educación: "1px solid rgba(2, 132, 199)",
-};
-
-const NAV_ITEMS = [
+const NAV_TABS = [
   {
     label: "Home",
-    fadeIn: "animate-[fadeInNavItemOrange_3s_ease-in-out]",
-    twIcon: "bx bxs-flame group-hover:text-icon-orange",
-    twIconActive: "text-icon-orange animate-pulse",
+    fadeIn: "animate-[fadeIn_1s_ease-in-out]",
+    twIcon: "bx bxs-hot -alt-2 group-hover:text-icon-orange",
+    twIconActive: "text-icon-orange",
   },
   {
     label: "Skills",
-    fadeIn: "animate-[fadeInNavItemPink_5s_ease-in-out]",
+    fadeIn: "animate-[fadeIn_1.5s_ease-in-out]",
     twIcon: "bx bxs-ghost group-hover:text-icon-pink",
-    twIconActive: "text-icon-pink animate-pulse",
+    twIconActive: "text-icon-pink",
   },
   {
-    label: "Trabajos",
-    fadeIn: "animate-[fadeInNavItemYellow_6s_ease-in-out]",
+    label: "Experiencia",
+    fadeIn: "animate-[fadeIn_2s_ease-in-out]",
     twIcon: "bx bxs-star group-hover:text-icon-yellow",
-    twIconActive: "text-icon-yellow animate-pulse",
+    twIconActive: "text-icon-yellow",
   },
   {
     label: "Educación",
-    fadeIn: "animate-[fadeInNavItemSky_7s_ease-in-out]",
-    twIcon: "bx bxs-book-bookmark group-hover:text-icon-sky",
-    twIconActive: "text-icon-sky animate-pulse",
+    fadeIn: "animate-[fadeIn_2.5s_ease-in-out]",
+    twIcon: "bx bxs-book group-hover:text-icon-sky",
+    twIconActive: "text-icon-sky",
   },
 ];
 
 export default function NavBar() {
-  const [activeNavItemLabel, setActiveNavItemLabel] = useState("Home");
-
-  function handleActiveNavItem(label) {
-    setActiveNavItemLabel(label);
-  }
-
-  const navBorderStyleActive = NAV_BORDER_STYLES[activeNavItemLabel];
+  const [activeNavTab, setActiveNavTab] = useState("Home");
 
   return (
     <header className="sticky top-0 z-50 flex flex-row justify-center bg-transparent">
-      <nav
-        className="min-w-full animate-fade-down-nav rounded-3xl bg-white/5 py-1 backdrop-blur-sm sm:min-w-1/3"
-        style={{ border: navBorderStyleActive }}
-      >
-        <ul className="flex flex-row justify-center">
-          {NAV_ITEMS.length > 0 &&
-            NAV_ITEMS.map((item) => (
+      <nav className="min-w-full animate-fade-down-nav rounded-3xl bg-black/10 py-1 backdrop-blur-sm sm:min-w-1/3">
+        <ul className="flex flex-row">
+          {NAV_TABS.length > 0 &&
+            NAV_TABS.map((item) => (
               <NavItem
                 key={item.label}
-                isSelected={item.label === activeNavItemLabel}
+                isSelected={item.label == activeNavTab}
                 label={item.label}
-                onActiveLabel={handleActiveNavItem}
+                setSelected={setActiveNavTab}
                 twFadeIn={item.fadeIn}
-                twIcon={`${item.twIcon} ${activeNavItemLabel === item.label ? item.twIconActive : ""}`}
+                twIcon={`${item.twIcon} ${activeNavTab === item.label ? item.twIconActive + " animate-pulse-icon" : ""}`}
               />
             ))}
           <ul />

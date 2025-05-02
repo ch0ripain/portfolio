@@ -1,20 +1,20 @@
-import "boxicons/css/boxicons.min.css";
+import "boxicons";
 
 export default function NavItem({
   twIcon,
   twFadeIn,
   isSelected,
   label,
-  onActiveLabel,
+  setSelected,
 }) {
   return (
     <li
-      onClick={() => onActiveLabel(label)}
-      className={`group mx-1 cursor-pointer flex-row place-content-center ${twFadeIn}`}
+      onClick={() => setSelected(label)}
+      className={`group mx-1 flex flex-1 flex-row place-content-center ${twFadeIn}`}
     >
       <a
         href={`#${label.toLowerCase()}`}
-        className={`flex min-h-8 flex-1 flex-row place-items-center ${isSelected ? "space-x-1" : "sm:space-x-1"} rounded-3xl px-4 py-1 transition duration-300 hover:bg-white/8`}
+        className={`flex min-h-8 cursor-pointer flex-row place-items-center justify-center hover:bg-white/10 sm:flex-1 ${isSelected ? "space-x-1 bg-white/15" : "sm:space-x-1"} rounded-3xl px-4 py-1`}
       >
         <i className={`${twIcon}`}></i>
         {isSelected ? (
