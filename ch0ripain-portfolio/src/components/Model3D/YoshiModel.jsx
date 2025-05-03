@@ -18,7 +18,7 @@ function YoshiScene() {
       // Nombre de la animación
       const firstAnimation = Object.values(actions)[0];
       // Establecer la velocidad de la animación
-      firstAnimation.timeScale = 0.5;
+      firstAnimation.timeScale = 0.4;
       firstAnimation?.play();
     }
     if (group.current) {
@@ -57,8 +57,9 @@ function YoshiScene() {
           scrub: true,
         },
       })
-      .to(group.current.rotation, { x: -0.5 })
-      .to(group.current.rotation, { x: 0 });
+      .to(group.current.rotation, { y: -0.5 })
+      .to(group.current.rotation, { y: 1.5 })
+      .to(group.current.rotation, { y: 0 });
 
     gsap
       .timeline({
@@ -70,7 +71,6 @@ function YoshiScene() {
           scrub: true,
         },
       })
-      .to(group.current.rotation, { y: 0 })
       .to(group.current.position, { x: 4, y: -2 });
   }, []);
 
@@ -80,7 +80,7 @@ function YoshiScene() {
 export default function YoshiModel() {
   return createPortal(
     <Canvas>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1.3} />
       <YoshiScene />
     </Canvas>,
     document.getElementById("three-canvas-container"),

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./components/NavBar/navbar.css";
+@plugin "@midudev/tailwind-animations";
 @layer base {
-  /* Reset box-sizing para todos los elementos */
   *,
   *::before,
   *::after {
@@ -33,74 +33,6 @@
   --text-title: clamp(2rem, 6vw + 1rem, 7rem);
   --text-subtitle: clamp(1rem, 2vw + 1rem, 3rem);
   --text-paragraph: clamp(0.5rem, 1vw + 1rem, 2rem);
-  /* Simple Animations */
-  --animate-fade-in: fadeIn 1s ease-in-out;
-  --animate-fade-up: fadeUp 1s ease-in-out;
-  --animate-fade-right: fadeRight 1s ease-in-out;
-  --animate-fade-down: fadeDown 1s ease-in-out;
-  --animate-fade-left: fadeLeft 1s ease-in-out;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeUp {
-    0% {
-      transform: translateY(20px);
-      opacity: 0%;
-    }
-    25% {
-      opacity: 0%;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes fadeRight {
-    0% {
-      transform: translateX(-20px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeDown {
-    0% {
-      transform: translateY(-20px);
-      opacity: 0%;
-    }
-    25% {
-      opacity: 0%;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes fadeLeft {
-    0% {
-      transform: translateX(20px);
-      opacity: 0%;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 100%;
-    }
-  }
 }
 
 /* 3D Model Styles */
@@ -115,6 +47,18 @@
   }
 }
 
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #three-canvas-container {
   position: fixed;
   top: 0;
@@ -123,7 +67,7 @@
   height: 100dvh;
   z-index: -1;
   pointer-events: none;
-  animation: fadeIn3D 5s ease-in-out;
+  animation: fadeIn3D 3s ease-in-out;
 }
 
 #scroller {
@@ -139,5 +83,5 @@
   top: 0;
   left: 0;
   z-index: -2;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeInBackground 2s ease-in-out;
 }

@@ -3,7 +3,6 @@ import { useRef } from "react";
 
 export default function NavItem({
   twIcon,
-  twFadeIn,
   isSelected,
   label,
   setSelected,
@@ -13,7 +12,7 @@ export default function NavItem({
   return (
     <li
       onClick={() => setSelected(label)}
-      className={`group mx-1 flex flex-1 flex-row place-content-center ${twFadeIn}`}
+      className={`group mx-1 flex flex-1 flex-row place-content-center`}
     >
       <a
         ref={activeTabRef}

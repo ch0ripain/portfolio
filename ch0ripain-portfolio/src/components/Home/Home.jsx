@@ -39,19 +39,19 @@ export default function Home() {
         </div>
         <IconButtonSection>
           <IconButton
-            src="https://lottie.host/972350a9-a4eb-49cd-bbfa-e8e27fd41d7a/J1AZeJ6wk4.lottie"
+            src="https://lottie.host/75789d7a-e29b-4d02-9546-d440b8c5a1de/wVvuX385lL.lottie"
             url={"https://github.com/ch0ripain"}
-            animate="animate-[fadeIn_2s_ease-in-out]"
+            animate="animate-vertical-bounce animate-duration-500 animate-delay-[2s]"
           />
           <IconButton
             src="https://lottie.host/2142fbe2-05e4-4ac8-85d9-2f1ee648ffcc/Y0uzJvDCF4.lottie"
             url={"#contacto"}
-            animate="animate-[fadeIn_3s_ease-in-out]"
+            animate="animate-vertical-bounce animate-duration-500 animate-delay-[2.3s]"
           />
           <IconButton
-            src="https://lottie.host/ce62e397-8d42-48a6-ac98-5e127eaf2968/PpJuJ1wUYg.lottie"
+            src="https://lottie.host/8f4e643f-d845-4829-9ea2-2662e6c04290/DHHdqg0hzT.lottie"
             url={"https://www.linkedin.com/in/leorufino/"}
-            animate="animate-[fadeIn_4s_ease-in-out]"
+            animate="animate-vertical-bounce animate-duration-500 animate-delay-[2.6s]"
           />
         </IconButtonSection>
       </div>

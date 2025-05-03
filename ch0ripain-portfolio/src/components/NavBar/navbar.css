@@ -1,37 +1,7 @@
 @theme {
   /* Nav Icons Colors */
-  --color-icon-orange: #fdba74;
-  --color-icon-pink: #f9a8d4;
+  --color-icon-orange: #ff7f11;
+  --color-icon-pink: #ff4da6;
   --color-icon-yellow: #facc15;
   --color-icon-sky: #7dd3fc;
-  /* NavBar Animations */
-  --animate-fade-down-nav: fadeDownNav 1s ease-in-out;
-  --animate-pulse-icon: pulseIcon 2s infinite ease-in-out;
-
-  @keyframes fadeDownNav {
-    0%,
-    25% {
-      transform: translateY(-20px);
-      opacity: 0%;
-    }
-    75% {
-      transform: translateY(0px);
-      opacity: 70%;
-    }
-  }
-
-  @keyframes pulseIcon {
-    0% {
-      opacity: 1;
-      filter: brightness(1);
-    }
-    50% {
-      opacity: 0.85;
-      filter: brightness(1.3);
-    }
-    100% {
-      opacity: 0.95;
-      filter: brightness(1);
-    }
-  }
 }
