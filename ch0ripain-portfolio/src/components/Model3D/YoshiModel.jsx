@@ -33,7 +33,7 @@ function YoshiScene() {
 
   // GSAP Storyline
   useEffect(() => {
-    gsap.set(group.current.position, { x: 3, y: -1 });
+    gsap.set(group.current.position, { x: 3.3, y: -1.5 });
     gsap
       .timeline({
         scrollTrigger: {
@@ -45,7 +45,7 @@ function YoshiScene() {
         },
       })
       .to(group.current.rotation, { y: 6 })
-      .to(group.current.position, { x: -4, y: -1 });
+      .to(group.current.position, { x: -3.3, y: -1.5 });
 
     gsap
       .timeline({
@@ -71,10 +71,10 @@ function YoshiScene() {
         },
       })
       .to(group.current.rotation, { y: 0 })
-      .to(group.current.position, { x: 4, y: -1.5 });
+      .to(group.current.position, { x: 4, y: -2 });
   }, []);
 
-  return <primitive ref={group} object={scene} scale={5.5} />;
+  return <primitive ref={group} object={scene} scale={7} />;
 }
 
 export default function YoshiModel() {

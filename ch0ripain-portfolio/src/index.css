@@ -1,5 +1,3 @@
-/* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300&family=Playfair+Display:ital@1&display=swap");
 @import "tailwindcss";
 @import "./components/NavBar/navbar.css";
 @layer base {
@@ -10,32 +8,10 @@
     @apply box-border;
   }
   body {
-    @apply relative min-h-screen w-full bg-purple-500 font-inter text-white antialiased;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol {
-    @apply m-0 p-0;
-  }
-
-  a {
-    @apply text-inherit no-underline;
-  }
-
-  /* Listas sin estilos por defecto */
-  ul,
-  ol {
-    @apply list-none;
-  }
-
-  img {
-    @apply h-auto max-w-full;
+    @apply relative min-h-screen w-full overflow-hidden font-inter text-white antialiased;
+    background-image: url("/shader-purple.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -128,6 +104,17 @@
 }
 
 /* 3D Model Styles */
+@keyframes fadeIn3D {
+  0%,
+  40% {
+    opacity: 1;
+    transform: translateX(700px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 #three-canvas-container {
   position: fixed;
   top: 0;
@@ -136,6 +123,12 @@
   height: 100dvh;
   z-index: -1;
   pointer-events: none;
+  animation: fadeIn3D 5s ease-in-out;
+}
+
+#scroller {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Background Shader */
@@ -146,4 +139,5 @@
   top: 0;
   left: 0;
   z-index: -2;
+  animation: fadeIn 1s ease-in-out;
 }

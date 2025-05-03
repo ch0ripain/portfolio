@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NavItem from "./NavItem";
+import { motion } from "motion/react";
 
 const NAV_TABS = [
   {
@@ -28,13 +29,30 @@ const NAV_TABS = [
   },
 ];
 
+const ActiveTabBackground = ({ position }) => {
+  const MotionLi = motion.li;
+  return (
+    <MotionLi
+      animate={{
+        ...position,
+      }}
+      className="absolute z-0 min-h-8 rounded-full bg-white/15"
+    />
+  );
+};
+
 export default function NavBar() {
   const [activeNavTab, setActiveNavTab] = useState("Home");
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
 
   return (
     <header className="sticky top-0 z-50 flex flex-row justify-center bg-transparent">
       <nav className="min-w-full animate-fade-down-nav rounded-3xl bg-black/10 py-1 backdrop-blur-sm sm:min-w-1/3">
-        <ul className="flex flex-row">
+        <ul className="relative flex flex-row">
           {NAV_TABS.length > 0 &&
             NAV_TABS.map((item) => (
               <NavItem
@@ -42,11 +60,12 @@ export default function NavBar() {
                 isSelected={item.label == activeNavTab}
                 label={item.label}
                 setSelected={setActiveNavTab}
+                setPosition={setPosition}
                 twFadeIn={item.fadeIn}
                 twIcon={`${item.twIcon} ${activeNavTab === item.label ? item.twIconActive + " animate-pulse-icon" : ""}`}
               />
             ))}
-          <ul />
+          <ActiveTabBackground position={position} />
         </ul>
       </nav>
     </header>

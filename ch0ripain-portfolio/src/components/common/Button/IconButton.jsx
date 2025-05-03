@@ -1,8 +1,14 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-export default function IconButton({ url, src, height = 30, width = 30 }) {
+export default function IconButton({
+  url,
+  src,
+  height = 30,
+  width = 30,
+  animate,
+}) {
   return (
-    <button>
+    <button className={animate}>
       <a
         href={url}
         target={`${url.includes("#") ? "_self" : "_blank"}`}
