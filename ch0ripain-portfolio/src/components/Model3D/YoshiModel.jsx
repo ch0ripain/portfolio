@@ -11,7 +11,7 @@ function YoshiScene() {
   const group = useRef();
   const { scene, animations } = useGLTF("/yoshi.glb");
   const { actions, mixer } = useAnimations(animations, group);
-
+  // GSAP Storyline
   useEffect(() => {
     // Reproducir la animación por defecto al montar el componente
     if (actions) {
@@ -23,56 +23,70 @@ function YoshiScene() {
     }
     if (group.current) {
       group.current.rotation.x = 0;
+      group.current.rotation.y = 0;
     }
+    gsap.set(group.current.position, { x: 4, y: 5 });
+    gsap.to(group.current.position, {
+      duration: 4,
+      ease: "expo.inOut",
+      y: -1.5,
+      delay: 4,
+    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          scroller: "#scroller",
+          trigger: "#home",
+          start: "top 10%",
+          end: "bottom center",
+          scrub: true,
+        },
+      })
+      .to(group.current.position, {
+        x: 10,
+        y: 1,
+        ease: "slow(0.7,0.7,false)",
+      });
+    gsap.timeline({
+      scrollTrigger: {
+        scroller: "#scroller",
+        trigger: "#skills",
+        start: "top center",
+        end: "center center",
+        scrub: true,
+        onLeave: () => {
+          gsap.set(group.current.position, { x: -12, y: -1 });
+        },
+      },
+    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          scroller: "#scroller",
+          trigger: "#skills",
+          start: "top top",
+          end: "bottom top",
+          scrub: "true",
+        },
+      })
+      .to(group.current.position, { x: -4, y: -1.5 });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          scroller: "#scroller",
+          trigger: "#educacion",
+          start: "top bottom",
+          end: "center center",
+          scrub: true,
+        },
+      })
+      .to(group.current.rotation, { y: 6 });
   }, [actions]);
 
   // Actualizar el mixer en cada frame para que la animación avance
   useFrame((state, delta) => {
     mixer?.update(delta);
   });
-
-  // GSAP Storyline
-  useEffect(() => {
-    gsap.set(group.current.position, { x: 3.3, y: -1.5 });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          scroller: "#scroller",
-          trigger: "#skills",
-          start: "top bottom",
-          end: "center center",
-          scrub: true,
-        },
-      })
-      .to(group.current.rotation, { y: 6 })
-      .to(group.current.position, { x: -3.3, y: -1.5 });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          scroller: "#scroller",
-          trigger: "#experiencia",
-          start: "top bottom",
-          end: "center center",
-          scrub: true,
-        },
-      })
-      .to(group.current.rotation, { y: -0.5 })
-      .to(group.current.rotation, { y: 1.5 })
-      .to(group.current.rotation, { y: 0 });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          scroller: "#scroller",
-          trigger: "#educación",
-          start: "top bottom",
-          end: "center center",
-          scrub: true,
-        },
-      })
-      .to(group.current.position, { x: 4, y: -2 });
-  }, []);
 
   return <primitive ref={group} object={scene} scale={7} />;
 }

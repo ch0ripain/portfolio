@@ -47,7 +47,7 @@ export default function NavBar() {
 
   return (
     <header className="sticky top-0 z-50 flex flex-row justify-center bg-transparent">
-      <nav className="min-w-full animate-fade-in-down rounded-3xl bg-white/5 py-1 backdrop-blur-sm animate-delay-[3.1s] animate-duration-[0.6s] sm:min-w-1/3">
+      <nav className="min-w-full animate-fade-in-down rounded-3xl bg-white/5 py-1 backdrop-blur-sm animate-delay-[4.3s] animate-duration-[0.8s] sm:min-w-1/3">
         <ul className="relative flex flex-row">
           {NAV_TABS.length > 0 &&
             NAV_TABS.map((item) => (
@@ -57,7 +57,7 @@ export default function NavBar() {
                 label={item.label}
                 setSelected={setActiveNavTab}
                 setPosition={setPosition}
-                twIcon={`${item.twIcon} ${activeNavTab === item.label ? item.twIconActive + " animate-pulsing" : ""}`}
+                twIcon={`${item.twIcon} ${activeNavTab === item.label ? item.twIconActive + " animate-[jelly_1s_ease]" : ""}`}
               />
             ))}
           <ActiveTabBackground position={position} />

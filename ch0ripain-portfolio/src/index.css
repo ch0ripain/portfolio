@@ -33,6 +33,8 @@
   --text-title: clamp(2rem, 6vw + 1rem, 7rem);
   --text-subtitle: clamp(1rem, 2vw + 1rem, 3rem);
   --text-paragraph: clamp(0.5rem, 1vw + 1rem, 2rem);
+  /* Animations */
+  --animate-rubberBand: rubber-band 1s ease-in-out infinite 1s;
 }
 
 /* 3D Model Styles */
@@ -67,7 +69,7 @@
   height: 100dvh;
   z-index: -1;
   pointer-events: none;
-  animation: fadeIn3D 3s ease-in-out;
+  /* animation: fadeIn3D 3s ease-in-out; */
 }
 
 #scroller {

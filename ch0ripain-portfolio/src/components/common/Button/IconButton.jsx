@@ -1,12 +1,21 @@
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Lottie from "react-lottie";
+import animationsData from "../../../assets/lotties/index";
 
 export default function IconButton({
   url,
-  src,
   height = 30,
   width = 30,
   animate,
+  lottie,
 }) {
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationsData[lottie],
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return (
     <button className={animate}>
       <a
@@ -14,7 +23,7 @@ export default function IconButton({
         target={`${url.includes("#") ? "_self" : "_blank"}`}
         rel="noopener noreferrer"
       >
-        <DotLottieReact src={src} loop autoplay height={height} width={width} />
+        <Lottie options={defaultOptions} height={height} width={width} />
       </a>
     </button>
   );

@@ -25,7 +25,7 @@ export default function NavItem({
             opacity: 1,
           });
         }}
-        href={`#${label.toLowerCase()}`}
+        href={`#${label.toLowerCase().replace(/ó/g, "o")}`}
         className={`relative flex min-h-8 cursor-pointer flex-row place-items-center justify-center sm:flex-1 ${isSelected ? "space-x-1" : "sm:space-x-1"} rounded-3xl px-4 py-1`}
       >
         <i className={`${twIcon}`}></i>
