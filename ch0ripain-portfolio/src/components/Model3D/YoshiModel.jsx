@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,7 +30,7 @@ function YoshiScene() {
       duration: 4,
       ease: "expo.inOut",
       y: -1.5,
-      delay: 4,
+      delay: 2,
     });
     gsap
       .timeline({
@@ -92,8 +92,15 @@ function YoshiScene() {
 }
 
 export default function YoshiModel() {
+  const [showModel, setShowModel] = useState(false);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowModel(true);
+    }, 3300);
+    return () => clearTimeout(timeout);
+  }, []);
   return createPortal(
-    <Canvas>
+    <Canvas style={{ visibility: showModel ? "visible" : "hidden" }}>
       <ambientLight intensity={1.3} />
       <YoshiScene />
     </Canvas>,

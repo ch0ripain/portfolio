@@ -65,8 +65,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100svw;
+  height: 100svh;
   z-index: -1;
   pointer-events: none;
   /* animation: fadeIn3D 3s ease-in-out; */
@@ -80,10 +80,10 @@
 /* Background Shader */
 #background {
   position: fixed;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100svw;
+  height: 100svh;
   top: 0;
   left: 0;
   z-index: -2;
-  animation: fadeInBackground 2s ease-in-out;
+  animation: fadeInBackground 1s ease-in-out;
 }

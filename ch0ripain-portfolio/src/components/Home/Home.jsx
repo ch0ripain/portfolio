@@ -21,7 +21,7 @@ export default function Home() {
       });
 
       tl.set(split.words, { autoAlpha: 0 }) // iniciar oculto
-        .to(split.words, { autoAlpha: 0, duration: 2 }) // mantener oculto por 2 segundos
+        .to(split.words, { autoAlpha: 0, duration: 1 }) // mantener oculto por 2 segundos
         .from(split.words, {
           y: 50,
           autoAlpha: 0,
@@ -31,7 +31,7 @@ export default function Home() {
         x: "-12vw",
         duration: 1,
         ease: "expo.inOut",
-        delay: 5,
+        delay: 3.3,
       });
       gsap
         .timeline({
@@ -75,7 +75,7 @@ export default function Home() {
           <IconButton
             src="https://lottie.host/75789d7a-e29b-4d02-9546-d440b8c5a1de/wVvuX385lL.lottie"
             url={"https://github.com/ch0ripain"}
-            animate="animate-fade-in animate-duration-500 animate-delay-[3.7s]"
+            animate="animate-fade-in animate-duration-500 animate-delay-[2.7s]"
             lottie={3}
             width={"100%"}
           />
@@ -87,7 +87,7 @@ export default function Home() {
           <IconButton
             src="https://lottie.host/8f4e643f-d845-4829-9ea2-2662e6c04290/DHHdqg0hzT.lottie"
             url={"https://www.linkedin.com/in/leorufino/"}
-            animate="animate-fade-in animate-duration-500 animate-delay-[4s]"
+            animate="animate-fade-in animate-duration-500 animate-delay-[3s]"
             lottie={2}
             height={40}
           />
