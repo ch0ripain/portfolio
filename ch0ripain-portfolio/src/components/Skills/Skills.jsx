@@ -1,6 +1,6 @@
 import Lottie from "react-lottie";
 import animationsData from "../../assets/lotties/index";
-import nextPNG from "../../assets/nxtjs.png";
+import nextImg from "../../assets/nextjs.webp";
 
 const SKILLS = [
   {
@@ -79,7 +79,7 @@ const Skill = ({ tw, iconClass, lottie }) => {
       <div className="flex h-full w-full flex-col items-center justify-center">
         {iconClass.includes("img") ? (
           <img
-            src={nextPNG}
+            src={nextImg}
             className="h-[70%] w-[100%] mix-blend-color-dodge"
           />
         ) : (

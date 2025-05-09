@@ -1,4 +1,3 @@
-import React from "react";
 import { createPortal } from "react-dom";
 import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
 // import * as reactSpring from '@react-spring/three'

@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 const NAV_TABS = [
   {
     label: "home",
-    twIcon: "bx bxs-hot -alt-2 group-hover:text-icon-orange",
-    twIconActive: "text-icon-orange",
+    twIcon: "bx bxs-hot -alt-2 group-hover:text-icon-pink",
+    twIconActive: "text-icon-pink",
   },
   {
     label: "skills",
@@ -15,13 +15,13 @@ const NAV_TABS = [
   },
   {
     label: "experiencia",
-    twIcon: "bx bxs-star group-hover:text-icon-yellow",
-    twIconActive: "text-icon-yellow",
+    twIcon: "bx bxs-star group-hover:text-icon-pink",
+    twIconActive: "text-icon-pink",
   },
   {
     label: "educacion",
-    twIcon: "bx bxs-book group-hover:text-icon-sky",
-    twIconActive: "text-icon-sky",
+    twIcon: "bx bxs-book group-hover:text-icon-pink",
+    twIconActive: "text-icon-pink",
   },
 ];
 
@@ -32,7 +32,7 @@ const ActiveTabBackground = ({ position }) => {
       animate={{
         ...position,
       }}
-      className="absolute z-0 min-h-8 rounded-full sm:bg-white/15"
+      className="absolute z-0 min-h-8 rounded-full sm:bg-white/10"
     />
   );
 };
@@ -66,7 +66,7 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 z-50 flex flex-row justify-center bg-transparent">
       <nav
-        className={`min-w-full ${showNav} animate-fade-in rounded-3xl bg-white/5 py-1 backdrop-blur-sm animate-delay-[5.5s] animate-duration-[0.5s] sm:min-w-1/3`}
+        className={`min-w-full ${showNav} animate-fade-in rounded-3xl py-1 backdrop-blur-sm animate-delay-[5.5s] animate-duration-[0.5s] sm:min-w-1/3`}
       >
         <ul className="relative flex flex-row">
           {NAV_TABS.length > 0 &&

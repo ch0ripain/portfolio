@@ -37,30 +37,6 @@
   --animate-rubberBand: rubber-band 1s ease-in-out infinite 1s;
 }
 
-/* 3D Model Styles */
-@keyframes fadeIn3D {
-  0%,
-  40% {
-    opacity: 1;
-    transform: translateX(700px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInBackground {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 #three-canvas-container {
   position: fixed;
   top: 0;
@@ -69,7 +45,6 @@
   height: 100svh;
   z-index: -1;
   pointer-events: none;
-  /* animation: fadeIn3D 3s ease-in-out; */
 }
 
 #scroller {
@@ -85,5 +60,5 @@
   top: 0;
   left: 0;
   z-index: -2;
-  animation: fadeInBackground 1s ease-in-out;
+  animation: fade-in 6s ease-in-out;
 }
