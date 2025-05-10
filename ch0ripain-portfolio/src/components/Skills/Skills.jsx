@@ -25,7 +25,7 @@ const SKILLS = [
   },
   {
     styles:
-      "col-span-2 col-start-1 row-start-3 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-tr from-black to-black hover:animate-[tilt_0.5s_ease]",
+      "col-span-2 col-start-1 row-start-3 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-tr bg-black hover:animate-[tilt_0.5s_ease]",
     label: "NextJS",
     iconClass: "img",
   },
@@ -80,10 +80,7 @@ const Skill = ({ tw, iconClass, lottie }) => {
       <GsapMagnetic>
         <div className="flex h-full w-full flex-col items-center justify-center">
           {iconClass.includes("img") ? (
-            <img
-              src={nextImg}
-              className="h-[75%] w-[90%] mix-blend-color-dodge"
-            />
+            <img src={nextImg} className="h-[75%] w-[90%]" />
           ) : (
             <i className={`${iconClass} text-7xl sm:text-8xl`}></i>
           )}
