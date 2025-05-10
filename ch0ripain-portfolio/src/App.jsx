@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import Education from "./components/Education/Education";
 import Experience from "./components/Experience/Experience";
 import Home from "./components/Home/Home";
-import YoshiModel from "./components/Model3D/YoshiModel";
+import YoshiModel from "./components/Animations/YoshiModel";
 import NavBar from "./components/NavBar/NavBar";
 import Skills from "./components/Skills/Skills";
-import BackgroundGradient from "./components/Background/BackgroundGradient";
-import Shader from "./components/Background/Shader";
+import BackgroundGradient from "./components/Animations/BackgroundGradient";
+import Shader from "./components/Animations/Shader";
 
 function App() {
   const [scrollEnabled, setScrollEnabled] = useState(false);

@@ -24,6 +24,7 @@ function YoshiScene() {
     if (group.current) {
       group.current.rotation.x = 0;
       group.current.rotation.y = 0;
+      console.log(group.current);
     }
     gsap.set(group.current.position, { x: 4, y: 5 });
     gsap.to(group.current.position, {
@@ -46,7 +47,8 @@ function YoshiScene() {
         x: 10,
         y: 1,
         ease: "slow(0.7,0.7,false)",
-      });
+      })
+      .to(group.current, { visible: false });
     gsap.timeline({
       scrollTrigger: {
         scroller: "#scroller",
@@ -56,6 +58,7 @@ function YoshiScene() {
         scrub: true,
         onLeave: () => {
           gsap.set(group.current.position, { x: -12, y: -1 });
+          gsap.set(group.current, { visible: true });
         },
       },
     });

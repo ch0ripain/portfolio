@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 import { motion } from "motion/react";
+import GsapMagnetic from "../Animations/GsapMagnetic";
 
 const NAV_TABS = [
   {
@@ -28,12 +29,14 @@ const NAV_TABS = [
 const ActiveTabBackground = ({ position }) => {
   const MotionLi = motion.li;
   return (
-    <MotionLi
-      animate={{
-        ...position,
-      }}
-      className="absolute z-0 min-h-8 rounded-full sm:bg-white/10"
-    />
+    <GsapMagnetic>
+      <MotionLi
+        animate={{
+          ...position,
+        }}
+        className="absolute z-0 min-h-8 rounded-full sm:bg-white/10"
+      />
+    </GsapMagnetic>
   );
 };
 

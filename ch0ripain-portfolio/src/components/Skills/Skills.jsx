@@ -1,6 +1,7 @@
 import Lottie from "react-lottie";
 import animationsData from "../../assets/lotties/index";
 import nextImg from "../../assets/nextjs.webp";
+import GsapMagnetic from "../Animations/GsapMagnetic";
 
 const SKILLS = [
   {
@@ -24,7 +25,7 @@ const SKILLS = [
   },
   {
     styles:
-      "col-span-2 col-start-1 row-start-3 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-tr from-black to-gray-600 hover:animate-[tilt_0.5s_ease]",
+      "col-span-2 col-start-1 row-start-3 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-tr from-black to-black hover:animate-[tilt_0.5s_ease]",
     label: "NextJS",
     iconClass: "img",
   },
@@ -70,22 +71,24 @@ const Skill = ({ tw, iconClass, lottie }) => {
       <Lottie
         options={defaultOptions}
         speed={0.7}
-        height={"70%"}
-        width={"60%"}
+        height={`${lottie === 0 ? "65%" : "90%"}`}
+        width={`${lottie === 0 ? "50%" : "65%"}`}
       />
     );
   } else {
     skill = (
-      <div className="flex h-full w-full flex-col items-center justify-center">
-        {iconClass.includes("img") ? (
-          <img
-            src={nextImg}
-            className="h-[70%] w-[100%] mix-blend-color-dodge"
-          />
-        ) : (
-          <i className={`${iconClass} text-7xl sm:text-8xl`}></i>
-        )}
-      </div>
+      <GsapMagnetic>
+        <div className="flex h-full w-full flex-col items-center justify-center">
+          {iconClass.includes("img") ? (
+            <img
+              src={nextImg}
+              className="h-[75%] w-[90%] mix-blend-color-dodge"
+            />
+          ) : (
+            <i className={`${iconClass} text-7xl sm:text-8xl`}></i>
+          )}
+        </div>
+      </GsapMagnetic>
     );
   }
   return (
@@ -100,9 +103,9 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="flex h-[80dvh] w-full scroll-mt-28 flex-row justify-center"
+      className="flex h-[80svh] w-full scroll-mt-28 flex-row justify-center"
     >
-      <div className="h-full w-full rounded-3xl bg-white/5 backdrop-blur-sm md:max-w-5/12">
+      <div className="h-full w-full rounded-3xl bg-white/5 backdrop-blur-sm md:max-w-4/12">
         <div className="grid h-full grid-cols-3 grid-rows-4 gap-4 p-4">
           {SKILLS.length > 0 &&
             SKILLS.map((skill, index) => {

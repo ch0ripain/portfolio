@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="flex min-h-[80dvh] scroll-mt-36 flex-row justify-center pb-[5%]"
+      className="flex min-h-[85svh] scroll-mt-36 flex-row justify-center pb-[5%]"
     >
       <div
         ref={homeRef}

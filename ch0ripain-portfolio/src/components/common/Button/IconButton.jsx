@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import Lottie from "react-lottie";
 import animationsData from "../../../assets/lotties/index";
+import GsapMagnetic from "../../Animations/GsapMagnetic";
 
 export default function IconButton({
   url,
@@ -8,23 +10,41 @@ export default function IconButton({
   animate,
   lottie,
 }) {
+  const lottieRef = useRef(null);
   const defaultOptions = {
     loop: false,
-    autoplay: true,
+    autoplay: false,
     animationData: animationsData[lottie],
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  const handleMouseEnter = () => {
+    if (lottieRef.current) {
+      lottieRef.current.stop();
+      lottieRef.current.play();
+    }
+  };
+
   return (
-    <button className={animate}>
-      <a
-        href={url}
-        target={`${url.includes("#") ? "_self" : "_blank"}`}
-        rel="noopener noreferrer"
-      >
-        <Lottie options={defaultOptions} height={height} width={width} />
-      </a>
-    </button>
+    <GsapMagnetic>
+      <button className={animate}>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={handleMouseEnter}
+        >
+          <Lottie
+            options={defaultOptions}
+            height={height}
+            width={width}
+            isClickToPauseDisabled
+            ref={lottieRef}
+          />
+        </a>
+      </button>
+    </GsapMagnetic>
   );
 }

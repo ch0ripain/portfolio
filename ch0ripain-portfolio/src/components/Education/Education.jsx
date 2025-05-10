@@ -31,7 +31,7 @@ export default function Education() {
   return (
     <section
       id="educacion"
-      className="mb-[5%] flex min-h-[70dvh] scroll-mt-36 flex-row justify-center"
+      className="mb-[5%] flex min-h-[80svh] scroll-mt-28 flex-row justify-center"
     >
       <div ref={educationRef} className="w-full bg-white/5 lg:max-w-8/12">
         <h1 className="font-orbitron text-center text-title uppercase">
