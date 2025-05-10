@@ -3,13 +3,14 @@ import IconButtonSection from "../common/Button/IconButtonSection";
 import IconButton from "../common/Button/IconButton";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(SplitText);
 
 export default function Home() {
   const homeRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     document.fonts.ready.then(() => {
       // split elements with the class "split" into words and characters
       let split = SplitText.create(".split", { type: "words, chars, lines" });
@@ -48,16 +49,16 @@ export default function Home() {
           ease: "slow(0.7,0.7,false)",
         });
     });
-  }, []);
+  });
 
   return (
     <section
       id="home"
-      className="flex min-h-[85svh] scroll-mt-36 flex-row justify-center pb-[5%]"
+      className="flex min-h-[85svh] w-full scroll-mt-36 flex-row justify-center pb-[5%]"
     >
       <div
         ref={homeRef}
-        className="flex flex-1 flex-col items-center justify-center px-[2%] md:max-w-8/12"
+        className="flex flex-1 flex-col items-center justify-center px-[2%] md:max-w-9/12"
       >
         <div className="flex w-full flex-row items-center justify-center">
           <h2 className="split invisible text-title opacity-0">
@@ -73,23 +74,20 @@ export default function Home() {
         </div>
         <IconButtonSection>
           <IconButton
-            src="https://lottie.host/75789d7a-e29b-4d02-9546-d440b8c5a1de/wVvuX385lL.lottie"
             url={"https://github.com/ch0ripain"}
             animate="animate-fade-in animate-duration-500 animate-delay-[2.7s]"
-            lottie={3}
-            width={"100%"}
+            name="github"
           />
-          {/* <IconButton
-            src="https://lottie.host/2142fbe2-05e4-4ac8-85d9-2f1ee648ffcc/Y0uzJvDCF4.lottie"
-            url={"#contacto"}
-            animate="animate-vertical-bounce animate-duration-500 animate-delay-[2.3s]"
-          /> */}
           <IconButton
-            src="https://lottie.host/8f4e643f-d845-4829-9ea2-2662e6c04290/DHHdqg0hzT.lottie"
+            url={"#educacion"}
+            animate="animate-fade-in animate-duration-500 animate-delay-[2.9s]"
+            name="email"
+            target="_self"
+          />
+          <IconButton
             url={"https://www.linkedin.com/in/leorufino/"}
-            animate="animate-fade-in animate-duration-500 animate-delay-[3s]"
-            lottie={2}
-            height={40}
+            animate="animate-fade-in animate-duration-500 animate-delay-[3.1s]"
+            name="linkedin"
           />
         </IconButtonSection>
       </div>

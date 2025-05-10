@@ -1,17 +1,18 @@
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 
-const GsapMagnetic = ({ children }) => {
+const GsapMagnetic = ({ children, duration = 1 }) => {
   const ref = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const timeout = setTimeout(() => {
       const xTo = gsap.quickTo(ref.current, "x", {
-        duration: 2,
+        duration: duration,
         ease: "elastic.out(1, 0.3)",
       });
       const yTo = gsap.quickTo(ref.current, "y", {
-        duration: 2,
+        duration: duration,
         ease: "elastic.out(1, 0.3)",
       });
       const mouseMove = (e) => {
@@ -35,7 +36,7 @@ const GsapMagnetic = ({ children }) => {
         clearTimeout(timeout);
       };
     }, 1000);
-  }, []);
+  });
 
   return React.cloneElement(children, { ref });
 };

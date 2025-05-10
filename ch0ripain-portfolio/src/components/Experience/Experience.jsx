@@ -1,13 +1,14 @@
 import { gsap } from "gsap";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Experience() {
   const experienceRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap
       .timeline({
         scrollTrigger: {
@@ -33,14 +34,17 @@ export default function Experience() {
         x: "0vw",
         ease: "slow(0.7,0.7,false)",
       });
-  }, []);
+  });
 
   return (
     <section
       id="experiencia"
       className="flex min-h-[80dvh] scroll-mt-28 flex-row justify-center"
     >
-      <div ref={experienceRef} className="w-full bg-white/5 lg:max-w-8/12">
+      <div
+        ref={experienceRef}
+        className="w-full rounded-3xl bg-white/5 backdrop-blur-sm lg:max-w-8/12"
+      >
         <h1 className="font-orbitron text-center text-title uppercase">
           Proyectos
         </h1>

@@ -1,48 +1,18 @@
-import { useRef } from "react";
-import Lottie from "react-lottie";
-import animationsData from "../../../assets/lotties/index";
 import GsapMagnetic from "../../Animations/GsapMagnetic";
 
-export default function IconButton({
-  url,
-  height = 30,
-  width = 30,
-  animate,
-  lottie,
-}) {
-  const lottieRef = useRef(null);
-  const defaultOptions = {
-    loop: false,
-    autoplay: false,
-    animationData: animationsData[lottie],
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+const ICONS = {
+  linkedin: { src: "/icons/linkedin.webp", alt: "Linkedin Icon Logo" },
+  github: { src: "/icons/github.webp", alt: "GitHub Icon Logo" },
+  email: { src: "/icons/email.webp", alt: "Email Icon Logo" },
+};
 
-  const handleMouseEnter = () => {
-    if (lottieRef.current) {
-      lottieRef.current.stop();
-      lottieRef.current.play();
-    }
-  };
-
+export default function IconButton({ url, animate, name, target = "_blank" }) {
+  const { src, alt } = ICONS[name];
   return (
     <GsapMagnetic>
       <button className={animate}>
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={handleMouseEnter}
-        >
-          <Lottie
-            options={defaultOptions}
-            height={height}
-            width={width}
-            isClickToPauseDisabled
-            ref={lottieRef}
-          />
+        <a href={url} target={target} rel="noopener noreferrer">
+          <img src={src} alt={alt} width={32} />
         </a>
       </button>
     </GsapMagnetic>

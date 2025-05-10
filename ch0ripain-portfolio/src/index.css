@@ -9,9 +9,6 @@
   }
   body {
     @apply relative min-h-screen w-full overflow-hidden font-inter text-white antialiased;
-    background-image: url("/shader-purple.png");
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 }
 
@@ -33,8 +30,6 @@
   --text-title: clamp(2rem, 6vw + 1rem, 7rem);
   --text-subtitle: clamp(1rem, 2vw + 1rem, 3rem);
   --text-paragraph: clamp(0.5rem, 1vw + 1rem, 2rem);
-  /* Animations */
-  --animate-rubberBand: rubber-band 1s ease-in-out infinite 1s;
 }
 
 #three-canvas-container {

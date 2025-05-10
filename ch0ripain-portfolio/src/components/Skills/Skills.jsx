@@ -1,26 +1,24 @@
-import Lottie from "react-lottie";
-import animationsData from "../../assets/lotties/index";
 import nextImg from "../../assets/nextjs.webp";
+import figmaImg from "../../assets/figma.webp";
 import GsapMagnetic from "../Animations/GsapMagnetic";
 
 const SKILLS = [
   {
     styles:
       "col-start-1 row-start-1 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-br from-yellow-700 via-yellow-400 to-yellow-300 hover:animate-[squeeze_0.5s_ease]",
-    label: "",
+    label: "JavaScript",
     iconClass: "bx bxl-javascript",
   },
   {
     styles:
       "col-span-2 col-start-2 row-span-2 row-start-1 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-bl from-cyan-900 via-cyan-700 to-cyan-300",
     label: "React",
-    // iconClass: "bx bxl-react",
-    lottie: 0,
+    iconClass: "bx bxl-react text-[7rem] sm:text-[12rem]",
   },
   {
     styles:
       "col-start-1 row-start-2 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-300 hover:animate-[squeeze_0.5s_ease]",
-    label: "",
+    label: "TypeScript",
     iconClass: "bx bxl-typescript",
   },
   {
@@ -39,8 +37,7 @@ const SKILLS = [
     styles:
       "col-start-1 row-start-4 flex h-full w-full items-center justify-center rounded-3xl bg-gradient-to-tr from-pink-900 via-pink-700 to-pink-300",
     label: "Figma",
-    // iconClass: "bx bxl-figma",
-    lottie: 1,
+    iconClass: "img",
   },
   {
     styles:
@@ -56,38 +53,26 @@ const SKILLS = [
   },
 ];
 
-const Skill = ({ tw, iconClass, lottie }) => {
-  let skill = <p>Cargando icono :p</p>;
-  if (lottie >= 0) {
-    const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animationsData[lottie],
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
-    };
-    skill = (
-      <Lottie
-        options={defaultOptions}
-        speed={0.7}
-        height={`${lottie === 0 ? "65%" : "90%"}`}
-        width={`${lottie === 0 ? "50%" : "65%"}`}
-      />
+const Skill = ({ tw, iconClass, label }) => {
+  const imgSkill =
+    label === "Figma" ? (
+      <img src={figmaImg} alt="Figma Logo" className="h-auto w-full" />
+    ) : (
+      <img src={nextImg} alt="NextJS Logo" className="h-auto w-full" />
     );
-  } else {
-    skill = (
-      <GsapMagnetic>
-        <div className="flex h-full w-full flex-col items-center justify-center">
-          {iconClass.includes("img") ? (
-            <img src={nextImg} className="h-[75%] w-[90%]" />
-          ) : (
-            <i className={`${iconClass} text-7xl sm:text-8xl`}></i>
-          )}
-        </div>
-      </GsapMagnetic>
-    );
-  }
+  let skill = (
+    <GsapMagnetic duration={2}>
+      <div
+        className={`flex h-full w-full flex-col items-center justify-center ${iconClass.includes("img") ? "p-6 sm:p-12" : undefined}`}
+      >
+        {iconClass.includes("img") ? (
+          imgSkill
+        ) : (
+          <i className={`${iconClass} text-7xl sm:text-8xl`}></i>
+        )}
+      </div>
+    </GsapMagnetic>
+  );
   return (
     <div className={`${tw} relative`}>
       {/* <span className="absolute bottom-0 mx-auto">{label}</span> */}
@@ -102,7 +87,7 @@ export default function Skills() {
       id="skills"
       className="flex h-[80svh] w-full scroll-mt-28 flex-row justify-center"
     >
-      <div className="h-full w-full rounded-3xl bg-white/5 backdrop-blur-sm md:max-w-4/12">
+      <div className="h-[60svh] w-full rounded-3xl bg-white/5 backdrop-blur-sm md:min-h-full md:max-w-5/12">
         <div className="grid h-full grid-cols-3 grid-rows-4 gap-4 p-4">
           {SKILLS.length > 0 &&
             SKILLS.map((skill, index) => {
@@ -111,7 +96,7 @@ export default function Skills() {
                   key={index}
                   tw={skill.styles}
                   iconClass={skill.iconClass}
-                  lottie={skill?.lottie}
+                  label={skill.label}
                 />
               );
             })}

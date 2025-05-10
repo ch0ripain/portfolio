@@ -10,7 +10,7 @@ uniform sampler2D iChannel0;
 uniform float scroll;
 
 // COLOR DE FONDO
-vec3 C = vec3(0.2, 0.015, 0.12); 
+vec3 C = vec3(0.5, 0.015, 0.2); 
 
 float GWM = 2.05;            // Intensidad base de las waves
 float TM = 0.25;            // Velocidad de variación en el tiempo
@@ -69,6 +69,7 @@ void main() {
 const ShaderMaterial = ({ scroll }) => {
   const meshRef = useRef();
   const { size } = useThree();
+  const smoothScroll = useRef(0); // <- Valor suavizado
 
   const uniforms = useRef({
     iTime: { value: 0 },
@@ -86,8 +87,12 @@ const ShaderMaterial = ({ scroll }) => {
 
   useFrame(({ clock }) => {
     if (meshRef.current) {
+      // Suavizar el scroll con LERP
+      const target = parseFloat(scroll);
+      smoothScroll.current += (target - smoothScroll.current) * 0.1; // LERP con t = 0.1
+      // Actualizar shaders
       meshRef.current.material.uniforms.iTime.value = clock.getElapsedTime();
-      meshRef.current.material.uniforms.scroll.value = parseFloat(scroll);
+      meshRef.current.material.uniforms.scroll.value = smoothScroll.current;
     }
   });
 
@@ -117,7 +122,10 @@ const Shader = forwardRef(function Shader(props, ref) {
 
     const handleScroll = () => {
       const scrollValue = scroller.scrollTop.toFixed(2);
-      setScrollPosition(scrollValue);
+
+      if (Math.abs(scrollValue - scrollPosition) >= 50) {
+        setScrollPosition(scrollValue);
+      }
     };
 
     scroller.addEventListener("scroll", handleScroll);

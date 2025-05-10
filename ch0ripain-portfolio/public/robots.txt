@@ -1,0 +1,12 @@
+User-agent: *
+
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /config/
+
+Disallow: /*?*sessionid=
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*utm_campaign=
+
+Allow: /assets/
