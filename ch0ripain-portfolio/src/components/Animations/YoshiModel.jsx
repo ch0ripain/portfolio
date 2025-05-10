@@ -45,7 +45,7 @@ function YoshiScene() {
       })
       .to(group.current.position, {
         x: 10,
-        y: 1,
+        y: 0.5,
         ease: "slow(0.7,0.7,false)",
       })
       .to(group.current, { visible: false });
@@ -57,7 +57,7 @@ function YoshiScene() {
         end: "center center",
         scrub: true,
         onLeave: () => {
-          gsap.set(group.current.position, { x: -12, y: -1 });
+          gsap.set(group.current.position, { x: -14, y: -1 });
           gsap.set(group.current, { visible: true });
         },
       },
