@@ -3,9 +3,8 @@ import Education from "./components/Education/Education";
 import Experience from "./components/Experience/Experience";
 import Home from "./components/Home/Home";
 import YoshiModel from "./components/Animations/YoshiModel";
-import NavBar from "./components/NavBar/NavBar";
+import Navbar from "./components/NavBar/Navbar";
 import Skills from "./components/Skills/Skills";
-import BackgroundGradient from "./components/Animations/BackgroundGradient";
 import Shader from "./components/Animations/Shader";
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
       <YoshiModel />
       {/* <BackgroundGradient /> */}
       <Shader ref={scrollerRef} />
-      <NavBar />
+      <Navbar />
       <main id="scroller-content" className="space-y-48 py-8">
         <Home />
         <Skills />

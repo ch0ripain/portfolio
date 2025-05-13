@@ -1,28 +1,20 @@
 import { useEffect, useState } from "react";
-import NavItem from "./NavItem";
+import NavbarItem from "./NavbarItem";
 import { motion } from "motion/react";
 import GsapMagnetic from "../Animations/GsapMagnetic";
 
 const NAV_TABS = [
   {
-    label: "home",
-    twIcon: "bx bxs-hot -alt-2 group-hover:text-icon-pink",
-    twIconActive: "text-icon-pink",
+    name: "home",
   },
   {
-    label: "skills",
-    twIcon: "bx bxs-ghost group-hover:text-icon-pink",
-    twIconActive: "text-icon-pink",
+    name: "skills",
   },
   {
-    label: "experiencia",
-    twIcon: "bx bxs-star group-hover:text-icon-pink",
-    twIconActive: "text-icon-pink",
+    name: "experiencia",
   },
   {
-    label: "educacion",
-    twIcon: "bx bxs-book group-hover:text-icon-pink",
-    twIconActive: "text-icon-pink",
+    name: "educacion",
   },
 ];
 
@@ -34,13 +26,13 @@ const ActiveTabBackground = ({ position }) => {
         animate={{
           ...position,
         }}
-        className="absolute z-0 min-h-8 rounded-full sm:bg-white/10"
+        className="absolute z-0 min-h-8 rounded-full sm:bg-white/15"
       />
     </GsapMagnetic>
   );
 };
 
-export default function NavBar() {
+export default function Navbar() {
   const [activeNavTab, setActiveNavTab] = useState(null);
   const [showNav, setShowNav] = useState("invisible");
   const [position, setPosition] = useState({
@@ -74,13 +66,12 @@ export default function NavBar() {
         <ul className="relative flex flex-row">
           {NAV_TABS.length > 0 &&
             NAV_TABS.map((item) => (
-              <NavItem
-                key={item.label}
-                isSelected={item.label === activeNavTab}
-                label={item.label}
+              <NavbarItem
+                key={item.name}
+                isSelected={item.name === activeNavTab}
+                name={item.name}
                 setSelected={setActiveNavTab}
                 setPosition={setPosition}
-                twIcon={`${item.twIcon} ${activeNavTab === item.label ? item.twIconActive + " animate-[jelly_1s_ease] animate-delay-[0.3s]" : ""}`}
               />
             ))}
           <ActiveTabBackground position={position} />

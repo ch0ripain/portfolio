@@ -1,10 +1,19 @@
-import "boxicons";
 import { useRef, useEffect } from "react";
+import HomeSVG from "../common/SVG/Navbar/HomeSVG";
+import SkillSVG from "../common/SVG/Navbar/SkillsSVG";
+import ExperienceSVG from "../common/SVG/Navbar/ExperienceSVG";
+import EducationSVG from "../common/SVG/Navbar/EducationSVG";
 
-export default function NavItem({
-  twIcon,
+const SVG_TYPES = {
+  home: HomeSVG,
+  skills: SkillSVG,
+  experiencia: ExperienceSVG,
+  educacion: EducationSVG,
+};
+
+export default function NavbarItem({
   isSelected,
-  label,
+  name,
   setSelected,
   setPosition,
 }) {
@@ -51,20 +60,23 @@ export default function NavItem({
     };
   }, [setPosition, setSelected]);
 
+  const strokeSvgColor = isSelected ? "#C71585" : "#FFF";
+  const IconSVG = SVG_TYPES[name];
+
   return (
     <li className={`group mx-1 flex flex-1 flex-row place-content-center`}>
       <a
-        id={`${label}Link`}
+        id={`${name}Link`}
         ref={activeTabRef}
-        href={"#" + label}
-        className={`relative flex min-h-8 cursor-pointer flex-row place-items-center justify-center sm:flex-1 ${isSelected ? "space-x-1" : "sm:space-x-1"} rounded-3xl px-4 py-1`}
+        href={"#" + name}
+        className={`relative flex min-h-8 cursor-pointer flex-row place-items-center justify-center hover:bg-white/10 sm:flex-1 ${isSelected ? "space-x-1" : "sm:space-x-1"} rounded-3xl px-4 py-1`}
       >
-        <i className={`${twIcon}`}></i>
+        <IconSVG stroke={strokeSvgColor} />
         {isSelected ? (
-          <p>{label.charAt(0).toUpperCase() + label.slice(1)}</p>
+          <p>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
         ) : (
           <p className="hidden sm:block">
-            {label.charAt(0).toUpperCase() + label.slice(1)}
+            {name.charAt(0).toUpperCase() + name.slice(1)}
           </p>
         )}
       </a>

@@ -1,6 +1,5 @@
-import "boxicons/css/boxicons.min.css";
-import IconButtonSection from "../common/Button/IconButtonSection";
-import IconButton from "../common/Button/IconButton";
+import HomeButtonSectionIcon from "./HomeButtonSectionIcon";
+import HomeButtonSection from "./HomeButtonSection";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
@@ -72,24 +71,29 @@ export default function Home() {
             Developer
           </h3>
         </div>
-        <IconButtonSection>
-          <IconButton
+        <HomeButtonSection>
+          <HomeButtonSectionIcon
             url={"https://github.com/ch0ripain"}
             animate="animate-fade-in animate-duration-500 animate-delay-[2.7s]"
             name="github"
           />
-          <IconButton
+          <HomeButtonSectionIcon
             url={"#educacion"}
             animate="animate-fade-in animate-duration-500 animate-delay-[2.9s]"
             name="email"
             target="_self"
           />
-          <IconButton
+          <HomeButtonSectionIcon
             url={"https://www.linkedin.com/in/leorufino/"}
             animate="animate-fade-in animate-duration-500 animate-delay-[3.1s]"
             name="linkedin"
           />
-        </IconButtonSection>
+          <HomeButtonSectionIcon
+            url={"/CV-Leandro_Rufino.pdf"}
+            animate="animate-fade-in animate-duration-500 animate-delay-[3.3s]"
+            name="cv"
+          />
+        </HomeButtonSection>
       </div>
     </section>
   );
